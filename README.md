@@ -1,2 +1,2 @@
 # generator
-Generator tips
+Tips about generators in JavaScript
