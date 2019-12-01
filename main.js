@@ -9,7 +9,19 @@ function* DomTraversal(element) {
 }
 
 const root = document.getElementById('for_generator_example');
-const domTraversalGenerator = DomTraversal(root);
-for(let item of domTraversalGenerator) {
-    console.log("Item Name", item.nodeName);
+const domTraversalIterator = DomTraversal(root);
+for(let item of domTraversalIterator) {
+    // console.log("Item Name", item.nodeName);
 }
+
+
+// Send and get data from generator
+function* printTwoNamesWithColor(color) {
+    const firstPersonName = yield (`Tailer ${color}`);
+
+    yield (`Brawn (${firstPersonName}) ${color}`);
+}
+
+const personIterator = printTwoNamesWithColor("gray");
+console.log("First Person:", personIterator.next());
+console.log("Second Person:", personIterator.next("Sarah"));
